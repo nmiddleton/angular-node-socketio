@@ -1,0 +1,9 @@
+path:
+  - server/
+languages:
+  - javascript
+  - less
+exclude:
+  - node_modules
+  - target
+  - "**/vendor/**"
