@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="SocketIODemo">
+<meta charset="utf-8">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.min.js"></script>
+<script src="../src/SocketIODemo.js"></script>
+<script src="http://localhost:8889/socket.io/socket.io.js"></script>
+
+<body>
+<div ng-controller="FormController">
+    <input placeholder="name.first" ng-model="sharedModel.name.first">
+    <input placeholder="name.last" ng-model="sharedModel.name.last">
+    <br/>
+    <textarea placeholder="html" ng-model="sharedModel.html"></textarea>
+    <hr/>
+    {{sharedModel.html}}
+    <hr/>
+    <div ng-bind-html-unsafe="sharedModel.html"></div>
+    <hr/>
+    Debug View:
+    <pre>sharedModel={{sharedModel | json}}</pre>
+</div>
+</body>
+</html>
