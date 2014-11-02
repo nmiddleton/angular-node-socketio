@@ -1,7 +1,8 @@
 // This socket is per browser session in a factory style
 
 angular.module('SocketIODemo', ['ngSanitize']).factory('sharedModel', function($rootScope) {
-    var model = {name:{first:'', last:''}};         // initialize sharedmodel with empty values
+//    var model = {name:{first:'', last:''}};         // initialize sharedmodel with empty values
+    var model = {filterText:''};                    // initialize sharedmodel with empty values
     var lastModel = angular.copy(model);            //initialize it to be the same as model
 
     // connect to the server.js that is listening on 8889
