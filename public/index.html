@@ -5,18 +5,23 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.min.js"></script>
 <script src="../src/SocketIODemo.js"></script>
 <script src="http://localhost:8889/socket.io/socket.io.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 
 <body>
 <div ng-controller="FormController">
-    <input placeholder="name.first" ng-model="sharedModel.name.first">
-    <input placeholder="name.last" ng-model="sharedModel.name.last">
+    Search example: <input placeholder="type any text" ng-model="filterText"/>
+    <!--<input placeholder="name.first" ng-model="sharedModel.name.first">-->
+    <!--<input placeholder="name.last" ng-model="sharedModel.name.last">-->
+    <ul>
+        <li ng-repeat='event in sharedModel.events  | filter: filterText'>{{event.topic}} Summary: {{event.value.summary}} Time: {{event.value.produced_at}} Status: {{event.value.status}} </li>
+    </ul>
     <br/>
-    <textarea placeholder="html" ng-model="sharedModel.html"></textarea>
-    <hr/>
-    {{sharedModel.html}}
-    <hr/>
-    <div ng-bind-html-unsafe="sharedModel.html"></div>
-    <hr/>
+    <!--<textarea placeholder="html" ng-model="sharedModel.html"></textarea>-->
+    <!--<hr/>-->
+    <!--{{sharedModel.html}}-->
+    <!--<hr/>-->
+    <!--<div ng-bind-html-unsafe="sharedModel.html"></div>-->
+    <!--<hr/>-->
     Debug View:
     <pre>sharedModel={{sharedModel | json}}</pre>
 </div>
